@@ -16,7 +16,7 @@ public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ingredient_id_seq")
-    private int ingredient_id;
+    private Integer ingredient_id;
 
     private String name;
 }

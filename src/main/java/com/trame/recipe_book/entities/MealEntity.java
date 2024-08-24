@@ -20,7 +20,7 @@ public class MealEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meal_id_seq")
-    private int meal_id;
+    private Integer meal_id;
 
     private String name;
 
