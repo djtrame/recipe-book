@@ -24,6 +24,9 @@ public class SeasonEntity {
 
     private String name;
 
+    @OneToMany(mappedBy = "season")
+    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+
     //attempting to implement a Many to Many relationship with an entity that joins Meals and Seasons, instead of using @ManyToMany
 
 

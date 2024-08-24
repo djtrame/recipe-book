@@ -36,4 +36,7 @@ public class MealEntity {
     public void linkMealToIngredient(IngredientEntity ingredientEntity) {
         mealIngredients.add(ingredientEntity);
     }
+
+    @OneToMany(mappedBy = "meal")
+    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
 }
