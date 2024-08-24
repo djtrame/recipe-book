@@ -1,14 +1,13 @@
 package com.trame.recipe_book.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -24,5 +23,15 @@ public class MealEntity {
 
     private String name;
 
+    @ManyToMany
+    @JoinTable(
+            name = "MealIngredients",
+            joinColumns = @JoinColumn(name = "meal_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private Set<IngredientEntity> mealIngredients = new HashSet<>();
 
+    public void linkMealToIngredient(IngredientEntity ingredientEntity) {
+        mealIngredients.add(ingredientEntity);
+    }
 }
