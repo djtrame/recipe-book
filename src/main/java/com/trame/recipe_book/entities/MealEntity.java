@@ -1,5 +1,6 @@
 package com.trame.recipe_book.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class MealEntity {
 
     private String name;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "MealIngredients",

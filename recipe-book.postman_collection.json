@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "14c27343-5273-4664-9bb0-ac0926c5fcbf",
+		"name": "recipe-book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37576217"
+	},
+	"item": [
+		{
+			"name": "meals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}meals",
+					"host": [
+						"{{varLocalHost}}meals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seasons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}seasons",
+					"host": [
+						"{{varLocalHost}}seasons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mealById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}meals/3",
+					"host": [
+						"{{varLocalHost}}meals"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seasonById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}seasons/3",
+					"host": [
+						"{{varLocalHost}}seasons"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "meals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sloppy joes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{varLocalHost}}meals",
+					"host": [
+						"{{varLocalHost}}meals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seasons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Fall\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{varLocalHost}}seasons",
+					"host": [
+						"{{varLocalHost}}seasons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}ingredients",
+					"host": [
+						"{{varLocalHost}}ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingredientById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}ingredients/6",
+					"host": [
+						"{{varLocalHost}}ingredients"
+					],
+					"path": [
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingredients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Manwich\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{varLocalHost}}ingredients",
+					"host": [
+						"{{varLocalHost}}ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "linkMealToIngredient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{varLocalHost}}meals/1/ingredients/1",
+					"host": [
+						"{{varLocalHost}}meals"
+					],
+					"path": [
+						"1",
+						"ingredients",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

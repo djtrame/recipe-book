@@ -50,7 +50,8 @@ public class MealController {
         return meals;
     }
 
-    @PutMapping(path = "/{meal_id}/ingredients/{ingredient_id}")
+    //TODO add support for the junction table entity so we can get createdDate and createdSource fields
+    @PutMapping(path = "/meals/{meal_id}/ingredients/{ingredient_id}")
     public ResponseEntity<MealEntity> linkMealToIngredient(
             @PathVariable Integer meal_id,
             @PathVariable Integer ingredient_id
