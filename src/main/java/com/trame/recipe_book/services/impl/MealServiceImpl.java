@@ -57,13 +57,20 @@ public class MealServiceImpl implements MealService {
         String updateSource = "SYSTEM";
 
         //this is an @Embeddable... maybe can't create on our own?
-        MealSeasonId mealSeasonId = new MealSeasonId(mealEntity.getMeal_id(), seasonEntity.getSeason_id());
+        //MealSeasonId mealSeasonId = new MealSeasonId(mealEntity.getMeal_id(), seasonEntity.getSeason_id());
 
-        MealSeasonEntity mealSeasonEntity = new MealSeasonEntity(mealSeasonId, mealEntity, seasonEntity, now, createSource, now, updateSource);
+        //MealSeasonEntity mealSeasonEntity = new MealSeasonEntity(mealSeasonId, mealEntity, seasonEntity, now, createSource, now, updateSource);
+
+        //trying empty constructor for a change, and just setting the meal and season on it
+        MealSeasonEntity mealSeasonEntity = new MealSeasonEntity();
+        mealSeasonEntity.setMeal(mealEntity);
+        mealSeasonEntity.setSeason(seasonEntity);
 
         mealEntity.linkMealToSeason(mealSeasonEntity);
 
+        //if this line runs we get this error: Cannot invoke "Object.getClass()" because "o" is null
         //mealSeasonRepository.save(mealSeasonEntity);
+
         return mealRepository.save(mealEntity);
     }
 
