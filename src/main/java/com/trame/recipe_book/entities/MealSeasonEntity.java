@@ -19,12 +19,12 @@ public class MealSeasonEntity {
     @EmbeddedId
     private MealSeasonId id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @MapsId("meal_id")
     @JoinColumn(name = "meal_id")
     private MealEntity meal;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @MapsId("season_id")
     @JoinColumn(name = "season_id")
     private SeasonEntity season;

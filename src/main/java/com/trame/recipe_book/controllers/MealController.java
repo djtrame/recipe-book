@@ -2,8 +2,10 @@ package com.trame.recipe_book.controllers;
 
 import com.trame.recipe_book.entities.IngredientEntity;
 import com.trame.recipe_book.entities.MealEntity;
+import com.trame.recipe_book.entities.SeasonEntity;
 import com.trame.recipe_book.services.IngredientService;
 import com.trame.recipe_book.services.MealService;
+import com.trame.recipe_book.services.SeasonService;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +23,12 @@ public class MealController {
 
     private IngredientService ingredientService;
 
-    public MealController(MealService mealService, IngredientService ingredientService) {
+    private SeasonService seasonService;
+
+    public MealController(MealService mealService, IngredientService ingredientService, SeasonService seasonService) {
         this.mealService = mealService;
         this.ingredientService = ingredientService;
+        this.seasonService = seasonService;
     }
 
     @PostMapping(path = "/meals")
@@ -61,6 +66,23 @@ public class MealController {
 
         if (foundMeal.isPresent() && foundIngredient.isPresent()) {
             MealEntity returnMeal = mealService.linkMealToIngredient(foundMeal.get(), foundIngredient.get());
+            return new ResponseEntity<>(returnMeal, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping(path = "/meals/{meal_id}/seasons/{season_id}")
+    public ResponseEntity<MealEntity> linkMealToSeason(
+            @PathVariable Integer meal_id,
+            @PathVariable Integer season_id
+    ) {
+        Optional<MealEntity> foundMeal = mealService.findOne(meal_id);
+        Optional<SeasonEntity> foundSeason = seasonService.findOne(season_id);
+
+        if (foundMeal.isPresent() && foundSeason.isPresent()) {
+            MealEntity returnMeal = mealService.linkMealToSeason(foundMeal.get(), foundSeason.get());
             return new ResponseEntity<>(returnMeal, HttpStatus.OK);
         }
         else {

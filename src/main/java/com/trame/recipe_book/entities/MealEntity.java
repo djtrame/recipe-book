@@ -38,6 +38,13 @@ public class MealEntity {
         mealIngredients.add(ingredientEntity);
     }
 
+    //@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
     @OneToMany(mappedBy = "meal")
+    //@ManyToMany
     private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+
+    public void linkMealToSeason(MealSeasonEntity mealSeasonEntity) {
+        mealSeasons.add(mealSeasonEntity);
+
+    }
 }
