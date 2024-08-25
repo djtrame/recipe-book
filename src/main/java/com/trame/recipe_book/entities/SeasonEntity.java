@@ -20,6 +20,7 @@ public class SeasonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "season_id_seq")
+    @SequenceGenerator(name = "season_id_seq", allocationSize = 1)
     private Integer season_id;
 
     private String name;

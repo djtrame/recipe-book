@@ -20,6 +20,7 @@ public class IngredientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ingredient_id_seq")
+    @SequenceGenerator(name = "ingredient_id_seq", allocationSize = 1)
     private Integer ingredient_id;
 
     private String name;

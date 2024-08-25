@@ -20,6 +20,7 @@ public class MealEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meal_id_seq")
+    @SequenceGenerator(name = "meal_id_seq", allocationSize = 1) //default is 50, which makes your IDs go haywire each time you run the app
     private Integer meal_id;
 
     private String name;
