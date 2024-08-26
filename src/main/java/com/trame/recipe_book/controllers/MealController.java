@@ -73,8 +73,6 @@ public class MealController {
         }
     }
 
-    //8-25-24 i'm throwing in the towel trying to get this junction table to work with its own entity.  maybe later.
-    //right now it returns a 200 Ok, but the mealSeasons object is blank
     @PutMapping(path = "/meals/{meal_id}/seasons/{season_id}")
     public ResponseEntity<MealEntity> linkMealToSeason(
             @PathVariable Integer meal_id,
@@ -91,5 +89,24 @@ public class MealController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    //8-25-24 i'm throwing in the towel trying to get this junction table to work with its own entity.  maybe later.
+    //right now it returns a 200 Ok, but the mealSeasons object is blank
+//    @PutMapping(path = "/meals/{meal_id}/seasons/{season_id}")
+//    public ResponseEntity<MealEntity> linkMealToSeason(
+//            @PathVariable Integer meal_id,
+//            @PathVariable Integer season_id
+//    ) {
+//        Optional<MealEntity> foundMeal = mealService.findOne(meal_id);
+//        Optional<SeasonEntity> foundSeason = seasonService.findOne(season_id);
+//
+//        if (foundMeal.isPresent() && foundSeason.isPresent()) {
+//            MealEntity returnMeal = mealService.linkMealToSeason(foundMeal.get(), foundSeason.get());
+//            return new ResponseEntity<>(returnMeal, HttpStatus.OK);
+//        }
+//        else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
 }

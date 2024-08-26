@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Embeddable
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Embeddable
 public class MealSeasonId implements Serializable {
     @Column(name = "meal_id")
     private Integer meal_id;

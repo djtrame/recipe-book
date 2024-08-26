@@ -38,13 +38,26 @@ public class MealEntity {
         mealIngredients.add(ingredientEntity);
     }
 
-    //@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
-    @OneToMany(mappedBy = "meal")
-    //@ManyToMany
-    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "MealSeasons",
+            joinColumns = @JoinColumn(name = "meal_id"),
+            inverseJoinColumns = @JoinColumn(name = "season_id")
+    )
+    private Set<SeasonEntity> mealSeasons = new HashSet<>();
 
-    public void linkMealToSeason(MealSeasonEntity mealSeasonEntity) {
-        mealSeasons.add(mealSeasonEntity);
-
+    public void linkMealToSeason(SeasonEntity seasonEntity) {
+        mealSeasons.add(seasonEntity);
     }
+
+//    //@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "meal")
+//    //@ManyToMany
+//    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+//
+//    public void linkMealToSeason(MealSeasonEntity mealSeasonEntity) {
+//        mealSeasons.add(mealSeasonEntity);
+
+//    }
 }
