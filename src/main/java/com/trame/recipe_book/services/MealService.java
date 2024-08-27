@@ -16,5 +16,5 @@ public interface MealService {
 
     MealEntity linkMealToIngredient(MealEntity mealEntity, IngredientEntity ingredientEntity);
 
-    MealEntity linkMealToSeason(MealEntity mealEntity, SeasonEntity seasonEntity);
+//    MealEntity linkMealToSeason(MealEntity mealEntity, SeasonEntity seasonEntity);
 }

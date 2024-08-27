@@ -52,11 +52,11 @@ public class MealServiceImpl implements MealService {
         return mealRepository.save(mealEntity);
     }
 
-    @Override
-    public MealEntity linkMealToSeason(MealEntity mealEntity, SeasonEntity seasonEntity) {
-        mealEntity.linkMealToSeason(seasonEntity);
-        return mealRepository.save(mealEntity);
-    }
+//    @Override
+//    public MealEntity linkMealToSeason(MealEntity mealEntity, SeasonEntity seasonEntity) {
+//        mealEntity.linkMealToSeason(seasonEntity);
+//        return mealRepository.save(mealEntity);
+//    }
 
     //@Override
 //    public MealEntity linkMealToSeason_OLD(MealEntity mealEntity, SeasonEntity seasonEntity) {

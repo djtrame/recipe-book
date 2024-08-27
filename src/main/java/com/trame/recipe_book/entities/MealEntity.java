@@ -38,26 +38,25 @@ public class MealEntity {
         mealIngredients.add(ingredientEntity);
     }
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "MealSeasons",
-            joinColumns = @JoinColumn(name = "meal_id"),
-            inverseJoinColumns = @JoinColumn(name = "season_id")
-    )
-    private Set<SeasonEntity> mealSeasons = new HashSet<>();
-
-    public void linkMealToSeason(SeasonEntity seasonEntity) {
-        mealSeasons.add(seasonEntity);
-    }
-
-//    //@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
-//    @OneToMany(mappedBy = "meal")
-//    //@ManyToMany
-//    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+    //8-26-24 - taking another shot at getting a custom junction table entity to work
+//    @JsonIgnore
+//    @ManyToMany
+//    @JoinTable(
+//            name = "MealSeasons",
+//            joinColumns = @JoinColumn(name = "meal_id"),
+//            inverseJoinColumns = @JoinColumn(name = "season_id")
+//    )
+//    private Set<SeasonEntity> mealSeasons = new HashSet<>();
 //
+//    public void linkMealToSeason(SeasonEntity seasonEntity) {
+//        mealSeasons.add(seasonEntity);
+//    }
+
+
+    @OneToMany(mappedBy = "meal")
+    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+
 //    public void linkMealToSeason(MealSeasonEntity mealSeasonEntity) {
 //        mealSeasons.add(mealSeasonEntity);
-
 //    }
 }

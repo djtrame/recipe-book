@@ -25,13 +25,12 @@ public class SeasonEntity {
 
     private String name;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "mealSeasons")
-    private Set<MealEntity> seasonMeals = new HashSet<>();
-
-//    @OneToMany(mappedBy = "season")
-//    //@OneToMany(mappedBy = "season", cascade = CascadeType.ALL)
-//    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
+//    @JsonIgnore
+//    @ManyToMany(mappedBy = "mealSeasons")
+//    private Set<MealEntity> seasonMeals = new HashSet<>();
+//
+    @OneToMany(mappedBy = "season")
+    private Set<MealSeasonEntity> mealSeasons = new HashSet<>();
 
     //attempting to implement a Many to Many relationship with an entity that joins Meals and Seasons, instead of using @ManyToMany
 
